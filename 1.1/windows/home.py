@@ -1,13 +1,15 @@
 import tkinter as tk
+# import sys
+# import os
 
-# from ..helpers import Font 
+# os.chdir("..")
+# sys.path.append(os.getcwd()+"\\utils")
 
-# class HomePage(tk.Frame) :
-#     def __init__(self, parent, controller) :
-#         tk.Frame.__init__(self, parent)
-#         label = tk.Label(self, text = "Home Page", font = Font.LARGE_FONT)
-#         label.pack(pady = 10, padx = 10)
+# import from user-defined modules 
+from utils.helpers import Font 
 
-import os
-
-print(os.getcwd())
+class HomeWindow(tk.Frame) :
+    def __init__(self, parent, controller) :
+        tk.Frame.__init__(self, parent)
+        label = tk.Label(self, text = "Home Page", font = Font.LARGE_FONT)
+        label.pack(pady = 10, padx = 10)

@@ -1,7 +1,7 @@
 import tkinter as tk 
-import server.windows.home as HomePage
-
-class BRS(tk.TK) :
+from windows.home import HomeWindow
+from utils.classLoader import Loader
+class BRS(tk.Tk) :
     def __init__ (self, *args, **kwargs) :
         tk.Tk.__init__(self, *args, **kwargs)
         container = tk.Frame(self) 
@@ -14,13 +14,13 @@ class BRS(tk.TK) :
 
         self.frames = {}
 
-        frame = HomePage(container, self )
+        windows = Loader().set_window_list().get_window_list()
+        for window in windows :
+            frame = window(container, self)
+            self.frames[window] = frame
+            frame.grid (row = 0, column = 0, sticky = "nsew")
 
-        self.frames[HomePage] = frame
-        
-        frame.grid (row = 0, column = 0, sticky = "nsew")
-
-        self.show_frame(HomePage)
+        self.show_frame(HomeWindow)
 
     def show_frame(self, cont):
         frame = self.frames[cont]
