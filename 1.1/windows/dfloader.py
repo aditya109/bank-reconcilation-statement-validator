@@ -6,5 +6,6 @@ class DFLoadingWindow(tk.Frame) :
         tk.Frame.__init__(self, parent)
         label = tk.Label(self, text = "DFLoadingWindow", font = Font.LARGE_FONT)
         label.pack(pady = 10, padx = 10)
+      
 
 
