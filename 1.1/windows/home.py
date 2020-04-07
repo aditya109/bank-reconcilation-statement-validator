@@ -1,31 +1,20 @@
 import tkinter as tk
 import sys
 import tkinter.ttk as ttk
-# import os
+from windows.tutorial import TutorialWindow
 
-# os.chdir("..")
-# sys.path.append(os.getcwd()+"\\utils")
-
-# import from user-defined modules 
-from utils.helpers import Font 
 from PIL import Image, ImageTk
 
-
-TITLE_FONT = ("Bernard MT Condensed", 50)
+BUTTON_TEXT = ("Bahnschrift", 18, "bold")
 TITLE_FONT2 = ("Microsoft JhengHei Light", 50)
-TEXT_FONT = ("Yu Gothic Light", 25)
+TEXT_FONT = ("Calibri Light", 20)
+CHECKBOXTEXT_FONT = ("Calibri", 15)
 
 class HomeWindow(tk.Frame) :
+
     def __init__(self, parent, controller) :
         tk.Frame.__init__(self, parent)
-        # photo = Image.open(f"{sys.path[0]}\\assets\\try.jpg")
-        # renderphoto = ImageTk.PhotoImage(photo)
-        # img = tk.Label(self, image=renderphoto)
-        # img.image = renderphoto
-        # img.place(x=0, y=0)
-
         
-
         title_label = tk.Label(self, 
                         text = "Bank Reconciliation Statement Validator ", 
                         font = TITLE_FONT2,
@@ -44,17 +33,52 @@ class HomeWindow(tk.Frame) :
         disclaimer.insert(tk.END, disclaimer_text)
         disclaimer.pack(pady=25, padx=10)
 
+        s = ttk.Style()
+        s.configure('Wild.TButton',
+            highlightthickness='20',
+            font=BUTTON_TEXT)
+        s.map('Wild.TButton',
+            foreground=[('pressed', '#303133'),
+                        ('disabled', 'darkgrey'),
+                        ('active', 'coral')],
+            background=[('pressed', 'focus', '#FFA500'),
+                        ('active', '#FFA500')],
+            highlightcolor=[('focus', 'green'),
+                            ('!focus', 'red')],
+            relief=[('pressed', 'flat'),
+                    ('!pressed', 'ridge')])
         click_to_proceed_btn = ttk.Button(self,
                                         text = "Click to Proceed >",
-                                        state= "active")
-        click_to_proceed_btn.pack(pady = 60, padx = 30)
-    
+                                        style= "Wild.TButton",
+                                        state=tk.DISABLED,
+                                        command = lambda: controller.show_frame(Tutorial)
+                                        cursor= "shuttle")
 
-
-
-
-
-
-
-
+        check_agreement_variable = tk.StringVar()
+        checkbox_agreement = tk.Checkbutton(self, 
+                                            text="I agree to the above directives given by the developers.",
+                                            bg = "#303133",
+                                            fg = "#FFA500",
+                                            offvalue = "OFF",
+                                            variable=check_agreement_variable,
+                                            # selectcolor = "white",
+                                            state = "active",
+                                            onvalue= "ON",
+                                            command = lambda:self.switchButtonState(check_agreement_variable, click_to_proceed_btn),
+                                            relief = "flat",
+                                            font = CHECKBOXTEXT_FONT)
+        checkbox_agreement.deselect()
+        checkbox_agreement.pack(pady = 60, padx = 30)
+        click_to_proceed_btn.pack(side="bottom", pady = 50, padx = 30)
+ 
         self.configure(bg="#2b2c2d")
+
+    def switchButtonState(self, state, button) :
+        if state.get() == "OFF" :
+            button['state'] = tk.DISABLED
+        else :
+            button['state'] = tk.NORMAL
+    
+    def show_frame(self, cont):
+        frame = self.frames[cont]
+        frame.tkraise()

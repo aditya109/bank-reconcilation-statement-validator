@@ -20,7 +20,7 @@ class Loader :
         # NavWindow,
         # ReportWindow,
         # SearchWindow,
-        # TutorialWindow,
+        TutorialWindow,
         # WarningWindow,
         ]
 
