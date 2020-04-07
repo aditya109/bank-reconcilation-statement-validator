@@ -15,13 +15,14 @@ class Loader :
     def set_window_list(self) :
 
         self.window_list = [HomeWindow,
-        DFLoadingWindow,
-        MatchOptionsWindow,
-        NavWindow,
-        ReportWindow,
-        SearchWindow,
+        # DFLoadingWindow,
+        # MatchOptionsWindow,
+        # NavWindow,
+        # ReportWindow,
+        # SearchWindow,
         TutorialWindow,
-        WarningWindow]
+        # WarningWindow,
+        ]
 
         return self
 
