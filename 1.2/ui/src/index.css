@@ -16,3 +16,9 @@ code {
 
 @import 'styles/homepage.css';
 @import 'styles/navpage.css';
+@import 'styles/dfloadingpage.css';
+@import 'styles/pageoptions.css';
+@import 'styles/reportpage.css';
+@import 'styles/searchingpage.css';
+@import 'styles/tutorialpage.css';
+@import 'styles/warningpage.css';
