@@ -2,14 +2,13 @@ import React from 'react'
 
 export default class PageOptions extends React.Component {
     constructor() {
-        super()
-
+        super();
+        this.state = {
+        }
     }
     render() {
         return (
-            <div>
-
-            </div>
+            <div></div>
         )
     }
 }

@@ -6,26 +6,26 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
 
 const photos = [
+    // {
+    //     name: "image-1",
+    //     url: "../../public/img/pic1.png",
+    // },
     {
         name: "image-1",
-        url: "../../public/img/pic1.png",
+        url: "https://images.unsplash.com/photo-1586115176276-3f7fe651ccf2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
     },
-    // {
-    //     name: "image-1",
-    //     url: "https://images.unsplash.com/photo-1586115176276-3f7fe651ccf2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
-    // },
-    // {
-    //     name: "image-1",
-    //     url: "https://images.unsplash.com/photo-1536536982624-06c1776e0ca8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
-    // },
-    // {
-    //     name: "image-1",
-    //     url: "https://images.unsplash.com/photo-1545559054-8f4f9e855781?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
-    // },
-    // {
-    //     name: "image-1",
-    //     url: "https://images.unsplash.com/photo-1558258695-39d4595e049c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80",
-    // },
+    {
+        name: "image-1",
+        url: "https://images.unsplash.com/photo-1536536982624-06c1776e0ca8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+    },
+    {
+        name: "image-1",
+        url: "https://images.unsplash.com/photo-1545559054-8f4f9e855781?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+    },
+    {
+        name: "image-1",
+        url: "https://images.unsplash.com/photo-1558258695-39d4595e049c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80",
+    },
 ]
 
 export default class TutorialPage extends React.Component {
@@ -78,7 +78,6 @@ export default class TutorialPage extends React.Component {
                                 </div>
                             )
                         })}
-
                     </Slider>
                 </div>
                 <div className="continue-button-div">
