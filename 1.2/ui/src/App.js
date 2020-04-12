@@ -23,9 +23,9 @@ class App extends React.Component{
       <div className = "App">
         <Router >
           
-          <Route exact path="/" component = {HomePage}/>              // ok
-          <Route exact path="/tutorial" component= {TutorialPage}/>   // ok
-          <Route exact path="/loader" component={DFLoadingPage}/>     // ok 
+          <Route exact path="/" component = {HomePage}/>              
+          <Route exact path="/tutorial" component= {TutorialPage}/>   
+          <Route exact path="/loader" component={DFLoadingPage}/>      
           <Route exact path="/control" component={ControlPage}/>  
           <Route exact path="/report" component={ReportPage}/>
           <Route exact path="/warning" component={WarningPage}/>
