@@ -4,9 +4,9 @@
 950740
 C3073F
 
-#0072BB
-#FF4C3B
-#FFD034
- #000000
-#C6C8CA
-#FFFFFF
+#0072BB	blue iochmara
+#FF4C3B	red sunset orange
+#FFD034		yellow
+#000000		black	
+#C6C8CA		silver sand
+#FFFFFF  white
