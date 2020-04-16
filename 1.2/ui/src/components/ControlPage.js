@@ -1,12 +1,20 @@
 import React from 'react'
 
-const placeholder_text = "1. CPNC ⇉ Credit \n2. CPNC ⇉ CDA \n3. Debits ⇉ CDA\m"
+const placeholder_text = "1. CPNC ⇉ Credit \n2. CPNC ⇉ CDA \n3. Debits ⇉ CDA"
+const JobQTypeOptions = ["predef", "custom"]
 export default class ControlPage extends React.Component {
     constructor() {
         super();
         this.state = {
+            job_Q : [],
+            jobQType : "predef",
+
         }
     }
+    triggerOnClick = (e) => {
+    }
+
+    
 
     render() {
         return (
@@ -25,7 +33,12 @@ export default class ControlPage extends React.Component {
                             <div className="trigger-btn-div">
                                 <div className="trigger-btn-container">
                                     <div className="trigger-btn">
-                                        <div className="btn-text">Trigger Redundancy Mechanism</div>
+                                        <div 
+                                        className="btn-text"
+                                        onClick={this.triggerOnClick}
+                                        >
+                                            Trigger Redundancy Mechanism
+                                        </div>
                                     </div>
                                 </div>
                             </div>

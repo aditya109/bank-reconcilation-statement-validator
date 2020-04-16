@@ -5,29 +5,35 @@ class HomePage extends React.Component {
     constructor(){
         super();
         this.state = {
-            isChecked:false
+            isChecked:true,
+            redirect: false,
         }
         this.handleChecked = this.handleChecked.bind(this);
+        this.setRedirect = this.setRedirect.bind(this);
+    }
+
+    setRedirect = () => {
+        this.setState({
+            redirect: true
+        })
+    }
+
+    renderRedirect = () => {
+        if (this.state.redirect) {
+            return <Redirect to='/tutorial'/>
+        }
     }
 
     handleChecked(e) {
-        console.log("click !! ")
         
         this.setState({
             isChecked: !this.state.isChecked
         });
-
     }
 
-    render() {
 
-        var activateButton; 
-        if (this.state.isChecked) {
-            activateButton="checked";
-        }
-        else {
-            activateButton="unchecked";
-        }
+    render() {
+        
         return (
             <div className="home-page-container">
                 <div className="home-page-title-div">
@@ -62,10 +68,16 @@ class HomePage extends React.Component {
                     </div>
                     
                 </div>
-                <div className="continue-button-div">
-                    <div class="example_f" align="center" onClick= {(e) => {this.handleChecked(e)}}>
+                <div className="continue-button-div" >
+                    <button 
+                    class="example_f" 
+                    align="center" 
+                    disabled={this.state.isChecked}
+                    onClick={this.setRedirect}
+                    >
                         <span>Continue</span>
-                    </div>
+                    </button>
+                    {this.renderRedirect()}
                 </div>
             </div>
         )
