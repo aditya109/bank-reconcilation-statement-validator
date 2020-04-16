@@ -5,29 +5,35 @@ class HomePage extends React.Component {
     constructor(){
         super();
         this.state = {
-            isChecked:false
+            isChecked:true,
+            redirect: false,
         }
         this.handleChecked = this.handleChecked.bind(this);
+        this.setRedirect = this.setRedirect.bind(this);
+    }
+
+    setRedirect = () => {
+        this.setState({
+            redirect: true
+        })
+    }
+
+    renderRedirect = () => {
+        if (this.state.redirect) {
+            return <Redirect to='/tutorial'/>
+        }
     }
 
     handleChecked(e) {
-        console.log("click !! ")
         
         this.setState({
             isChecked: !this.state.isChecked
         });
-
     }
 
-    render() {
 
-        var activateButton; 
-        if (this.state.isChecked) {
-            activateButton="checked";
-        }
-        else {
-            activateButton="unchecked";
-        }
+    render() {
+        
         return (
             <div className="home-page-container">
                 <div className="home-page-title-div">
@@ -39,16 +45,16 @@ class HomePage extends React.Component {
                 </div>
                 <div className="warning-text-div">
                     <span className="warning-text-low">This is to inform you as an end-user that </span>
-                    <span className="warning-text-high">this application is in alpha-phase </span>
-                    <span className="warning-text-low">and is meant for </span>
-                    <span className="warning-text-high">automating the laborious work done to detect erroneous transactions done manually.</span>
-                    <span className="warning-text-low">So it is an earnest request to </span>
-                    <span className="warning-text-high">bear with simple-minded UI or noticeable server-responce latencies, </span>
-                    <span className="warning-text-low">since the </span>
-                    <span className="warning-text-high">focus majored on the use-cases and not on the UI. </span>
-                    <span className="warning-text-low">This application is </span>
-                    <span className="warning-text-high">not supposed to be hosted on net unless approved by the dev.</span>
-                    <span className="warning-text-low">Please do not try to </span>
+                    <span className="warning-text-high">this application is in alpha-phase</span>
+                    <span className="warning-text-low"> and is meant for </span>
+                    <span className="warning-text-high">automating the laborious work done to detect erroneous transactions done manually</span>
+                    <span className="warning-text-low">. So it is an earnest request to </span>
+                    <span className="warning-text-high">bear with simple-minded UI or noticeable server-response latencies</span>
+                    <span className="warning-text-low">, since the </span>
+                    <span className="warning-text-high">focus majored on the use-cases and not on the UI</span>
+                    <span className="warning-text-low">. This application is </span>
+                    <span className="warning-text-high">not supposed to be hosted on net unless approved by the dev</span>
+                    <span className="warning-text-low">. Please do not try to </span>
                     <span className="warning-text-high">tamper with the code or induce malicious code in any manner.</span>
                 </div>
                 <div className="checkbox-div">
@@ -62,10 +68,16 @@ class HomePage extends React.Component {
                     </div>
                     
                 </div>
-                <div className="continue-button-div">
-                    <div class="example_f" align="center" onClick= {(e) => {this.handleChecked(e)}}>
-                        <span>continue</span>
-                    </div>
+                <div className="continue-button-div" >
+                    <button 
+                    class="example_f" 
+                    align="center" 
+                    disabled={this.state.isChecked}
+                    onClick={this.setRedirect}
+                    >
+                        <span>Continue</span>
+                    </button>
+                    {this.renderRedirect()}
                 </div>
             </div>
         )

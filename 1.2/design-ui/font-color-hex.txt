@@ -3,3 +3,15 @@
 6F2232
 950740
 C3073F
+
+#0072BB	blue iochmara
+
+#FF4C3B	red sunset orange
+#e62100
+
+#FFD034		yellow
+#e6e600
+
+#000000		black	
+#C6C8CA		silver sand
+#FFFFFF  white

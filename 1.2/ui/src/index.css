@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #1A1A1D;
+  background-color: #FFD034;
   /* background-color: aliceblue; */
 }
 
@@ -17,8 +17,8 @@ code {
 @import 'styles/homepage.css';
 @import 'styles/controlpage.css';
 @import 'styles/dfloadingpage.css';
-@import 'styles/pageoptions.css';
-@import 'styles/reportpage.css';
+
+
 @import 'styles/searchingpage.css';
 @import 'styles/tutorialpage.css';
 @import 'styles/warningpage.css';

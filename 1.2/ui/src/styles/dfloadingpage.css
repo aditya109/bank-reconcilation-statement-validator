@@ -11,17 +11,20 @@
 
 }
 .sel-tab{
-    background-color: #950740;
+    background-color: #0072BB;
     color: aliceblue;
+    font-size: large;
 }
 .dis-tab{
-    color: #950740;
+
 }
 .sel-panel {
     color: aliceblue;
 }
 .tabs-panel-container {
-    color: aliceblue;
+    color: #1a1a1d;
+    font-weight: 400;
+    font-size: large;
     padding-bottom: 1px;
     padding-left: 1px;
     padding-right: 1px;
@@ -30,7 +33,7 @@
 }
 .nav-btn {
     border-radius: 4px;
-    background: linear-gradient(to right,#4E4E50, #C3073F) !important;
+    background: linear-gradient(to right,#0072BB, #FF4C3B) !important;
     display: inline-block;
     border: none;
     color: #FFFFFF;
@@ -41,8 +44,7 @@
     width: 400px;
     transition: all 1.4s;
     cursor: pointer;
-    flex: 3;
-    /* margin: 5px; */
+    
   }
 .nav-btn span {
   cursor: pointer;
@@ -70,34 +72,36 @@
   color: aliceblue !important;
   text-transform: uppercase;
   text-decoration: none;
-  background: #C3073F;
+  background: #e62100;
   padding: 13px;
+  font-weight: 100;
   height: 30px;
   border-radius: 5px;
   display: inline-block;
   font-size: x-large;
   border: none;
-  flex: 1;
   transition: all 0.4s ease 0s;
   }
 .load-btn:hover {
-  background: #4E4E50;
+  background:#0072BB;
   letter-spacing: 3px;
   -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
   -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
   box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
   transition: all 0.4s ease 0s;
+  font-weight: 450;
 }
 .panel-title-text{
   font-size: 53px;
-  color: #C3073F;
+  color: #0051b3;
+  font-family: 'Rubik', sans-serif;
 }
 
 .panel-title {
     padding-bottom: 0px;
     padding-left: 0px;
     padding-right: 0px;
-    padding-top: 10px; 
+    padding-top: 1px; 
 }
 
 .column-input-text{
@@ -109,7 +113,7 @@
   padding-bottom: 0px;
   padding-left: 0px;
   padding-right: 0px;
-  padding-top: 20px; 
+  padding-top: 8px; 
   text-align: left;
   font-size: xx-large;
   font-family: 'Rubik', sans-serif;
@@ -118,14 +122,15 @@
   display: inline-block;
 }
 .input-text-area{
-  padding-top: 23px;
+  padding-top: 18px;
 }
 .panel-content {
   
 }
 .btn-div{
-  padding-top: 3px;
+  padding-top: 4px;
   display: flex;
+  justify-content: space-between;
 }
 .nav-btn-div {
   
