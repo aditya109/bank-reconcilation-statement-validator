@@ -22,5 +22,5 @@ Icons credits:
 - [Pixelmeetup](https://www.flaticon.com/authors/Pixelmeetup)  -->
 
 Devs :
-[aditya109](https://github.com/aditya109)
+[aditya109](https://github.com/aditya109) |
 [Akanksha810](https://github.com/Akanksha810)
