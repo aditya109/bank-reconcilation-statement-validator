@@ -248,17 +248,54 @@ textarea {
     align-items: center;
 }
 .control-btn-div {
-    padding-left: 300px;
+    padding-left: 200px;
 }
 .add-btn {
-   margin:30px;
+    display:inline-block;
+    padding:0.35em 1.2em;
+    border:3px solid #FFD034;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-size: large;
+    height: 50px;
+    width: auto;
+    font-weight:300;
+    color:#FFFFFF;
+    background-color: #1a1a1d;
+    text-align:center;
+    transition: all 0.2s;
+    margin: 30px
 }
 .add-btn:hover {
+    color:#1a1a1d;
+    background: #FFD034;
 
 }
 .reset-btn{
+    display:inline-block;
+    padding:0.35em 1.2em;
+    border:3px solid #FFD034;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-size: large;
+    height: 50px;
+    width: auto;
+    font-weight:300;
+    color:#FFFFFF;
+    background-color: #1a1a1d;
+    text-align:center;
+    transition: all 0.2s;
+    margin: 30px
 
 }
 .reset-btn:hover {
+    color:#1a1a1d;
+    background: #FFD034;
 
 }
