@@ -2,12 +2,13 @@
 ### They hold no technical significance.
 =====================================================================================
 main routes :
-- /input
+- /load
 - /search 
 - /store
-- /analytics
+- /stats
+
 =====================================================================================
-defining RESTful API for '/input':
+defining RESTful API for '/load':
 -------------------------------------------------------------------------------------
 The task here is to  :
 - accept columnar data (transaction dates, transaction amounts, 
@@ -40,6 +41,7 @@ the task here is to :
 - generate the BRS class instance
 - write performance analytics to a file 'pa_records.txt'
 - return an appropriate message for the search completion, or drop an error 
+
 ======================================================================================
 defining RESTful API for '/store':
 --------------------------------------------------------------------------------------
@@ -49,16 +51,46 @@ the task here is to :
 - write the respective dataframes to excel files 
 - return appropriate message for the completion of write 
 ======================================================================================
-defining RESTful API for '/analytics': (for developers only)
+defining RESTful API for '/stats': (for developers only)
 --------------------------------------------------------------------------------------
 - print the performance matrix (for developers only)
 ======================================================================================
-
 FILE STRUCTURE :
-
-    ├───controllers
-    └───services
+--------------------------------------------------------------------------------------
 server
+├───controller  -> holds job-manager functionalities and re-routing capabilities
+├───domain      -> holds concrete implementation classes of abstract-base classes in `services`
+├───handlers    -> holds classes to handle the server APIs
+├───pkg         -> holds server features like auto-upgrade, performance-benchamrking, etc
+└───services    -> holds all the abstract-base classes and interfaces
+======================================================================================
+CLASSES TO USED:
+
+-   DataFrame
+-   HashTable
+-   PerformanceMatrix
+-   BRSStatement
+
+-   DFToHashTableConverter
+-   HashTableToDFConverter
+-   JobSequencer
+-   SearchNMatchTrigger
+
+-   LoadRouteHandler
+-   SearchRouteHandler
+-   StatsRouteHandler
+-   StoreRouteHandler
+----------------------------------------------------------------------------------------
+INTERFACES/ABCs TO USED:
+-   RawObject
+-   Matrix
+-   Report
+-   Converter
+-   Handler
+--------------------------------------------------------------------------------------------
+
+
+
 
 
 
