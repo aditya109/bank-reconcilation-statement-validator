@@ -1,6 +1,8 @@
 ![](https://raw.githubusercontent.com/aditya109/Bank-Reconcilation-Statement-Validator/master/1.1/assets/logo-icon.png)
 # Bank-Reconcilation-Statement-Validator
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8dfbbca71d904577a97731dd410f3eae)](https://app.codacy.com/manual/aditya109/Bank-Reconcilation-Statement-Validator?utm_source=github.com&utm_medium=referral&utm_content=aditya109/Bank-Reconcilation-Statement-Validator&utm_campaign=Badge_Grade_Dashboard)
+
 This was a simplified desktop application made for account clerks in a certain company to maintain their policy books of policy holders with bank transactions. 
 
 ##### WIP Next Build 1.2 Release Date 31 May, 2020
