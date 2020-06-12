@@ -1,0 +1,22 @@
+.warning-text-div{
+  font-size: 25px;
+  text-align: center;
+  display: inline-block;
+  width: 1200px;
+  height: auto;
+  padding-top: 100px;
+}
+
+.warning-text-low {
+  color: #4e4e50;
+  font-weight: 450;    
+  font-size: 40px;
+}
+.warning-text-high {
+  /* color: #C3073F; */
+  color: #0072BB;
+  font-weight: 600;
+  font-size: 40px;
+  text-decoration: underline;
+  
+}

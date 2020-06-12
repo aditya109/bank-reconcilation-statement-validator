@@ -1,0 +1,15 @@
+{
+  "short_name": "BRSV",
+  "name": "Bank Reconcilation Statement Validator",
+  "icons": [
+    {
+      "src": "homepage_left.jpg",
+      "type": "image/jpg",
+      "sizes": "5760x3240"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#27242c",
+  "background_color": "#27242c"
+}
