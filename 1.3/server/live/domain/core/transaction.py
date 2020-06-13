@@ -37,7 +37,7 @@ class Transaction:
         Returns:
             str: Returns a formatted string containing Transaction Details
         """
-        return f"Transaction Details: \n" \
-               f"Date   : {self.__transaction_date} \n" \
-               f"ID     : {self.__cheques_id} \n" \
-               f"Amount : {self.__transaction_amount} \n"
+        return f"Transaction Details: " \
+               f"Date   : {self.__transaction_date} " \
+               f"ID     : {self.__cheques_id} " \
+               f"Amount : {self.__transaction_amount} "
