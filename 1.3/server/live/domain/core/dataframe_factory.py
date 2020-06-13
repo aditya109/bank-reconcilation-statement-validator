@@ -99,14 +99,14 @@ class DataFrameFactory:
                         transaction = transaction.onTransactionDate(str(datetime.datetime(*xlrd.xldate_as_tuple(cell, wb.datemode)).strftime("%d-%b-%Y")))
                 elif j == 1:
                     # cheque id
-                    if len(re.findall(r'(\d{9,17})', cell)) != 0:
-                        transaction = transaction.withChequeID(re.findall(r'(\d{9,17})', cell)[0])
+                    if len(re.findall(r'(\d{11,17})', cell)) != 0:
+                        transaction = transaction.withChequeID(re.findall(r'(\d{11,17})', cell)[0])
                     elif len(re.findall(r'(\d{6})', cell)) != 0:
-                        transaction = transaction.withChequeID(re.findall(r'(\d{6})', cell)[0])
+                        transaction = transaction.withChequeID(re.findall(r'(\d{1,6})', cell)[0])
                     elif len(re.findall(r'(CASH RECEIPT)', cell)) == 1:
                         transaction = transaction.withChequeID("CASH RECEIPT")
                     else:
-                        transaction = transaction.withChequeID("")
+                        transaction = transaction.withChequeID("NA")
                 else:
                     # transaction amount
                     if cell == "":
@@ -134,7 +134,15 @@ class DataFrameFactory:
                     else:
                         transaction = transaction.onTransactionDate(str(datetime.datetime(*xlrd.xldate_as_tuple(cell, wb.datemode)).strftime("%d-%b-%Y")))
                 elif j == 1:
-                    transaction = transaction.withChequeID(cell)
+                    # cheque id
+                    if len(re.findall(r'(\d{11,17})', cell)) != 0:
+                        transaction = transaction.withChequeID(re.findall(r'(\d{11,17})', cell)[0])
+                    elif len(re.findall(r'(\d{6})', cell)) != 0:
+                        transaction = transaction.withChequeID(re.findall(r'(\d{1,6})', cell)[0])
+                    elif len(re.findall(r'(CASH RECEIPT)', cell)) == 1:
+                        transaction = transaction.withChequeID("CASH RECEIPT")
+                    else:
+                        transaction = transaction.withChequeID("NA")
                 else:
                     transaction = transaction.withTransactionAmount(float(cell))
             transaction = transaction.build()
