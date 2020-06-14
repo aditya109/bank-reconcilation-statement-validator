@@ -3,22 +3,22 @@ from live.domain.core.transaction import Transaction
 class TransactionBuilder:
     def __init__(self):
         self.date = ""
-        self.id = -1
-        self.amount = -1
+        self.id = ""
+        self.amount = ""
 
     @staticmethod
     def start():
         return TransactionBuilder()
 
-    def onTransactionDate(self, date:str):
+    def onTransactionDate(self, date):
         self.date = date
         return self
 
-    def withChequeID(self, id:int):
+    def withChequeID(self, id):
         self.id = id
         return self
 
-    def withTransactionAmount(self, amount:float):
+    def withTransactionAmount(self, amount):
         self.amount = amount
         return self
 

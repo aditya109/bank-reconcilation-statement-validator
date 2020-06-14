@@ -1,17 +1,19 @@
-
-
+import hashlib
 class HashTable:
     def __init__(self, id = ""):
-        self.map=dict()
+        self.map =dict()
         self.map_id = id
 
-    def hash(self, item):
+    @staticmethod
+    def hash_item(item):
         """
         Get the index of our array for a specific Transaction object.
         :param transaction:
         :return: int
         """
-        return hash(item.cheques_id)
+        h = hashlib.md5()
+        h.update(str(item).encode('utf-8'))
+        return h.hexdigest()
 
     def add(self, item):
         """Add a transaction to the hash-table
@@ -19,9 +21,11 @@ class HashTable:
         :param transaction:Transaction
         :return:
         """
-        index=self.hash(item)
+        index = HashTable.hash_item(item.cheques_id)
         if index not in self.map:
-            self.map[index]=item
+            self.map[index ] =[item]
+        else:
+            self.map[index].append(item)
 
     def get(self, item):
         """Get a transaction ID by the transaction object
@@ -29,7 +33,7 @@ class HashTable:
         :param transaction: Transaction
         :return: bool
         """
-        index=self.hash(item = item)
+        index=HashTable.hash_item(item = item.cheques_id)
 
         if self.map.get(index) != None:
             self.remove(index)
@@ -46,4 +50,6 @@ class HashTable:
         del self.map[index]
 
     def __str__(self):
-        return f"{self.map}"
+        return f"HashTable :\n" \
+               f"HT_ID: {self.map_id}" \
+               # f"HT_Size: {self.map}"

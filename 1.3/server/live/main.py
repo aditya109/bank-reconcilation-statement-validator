@@ -1,31 +1,33 @@
-import re
-
 from live.domain.core.dataframe_factory import DataFrameFactory
 from live.domain.module.hashtable_factory import HashTableFactory
+from live.services.transaction_filter import TransactionFilter
+import os, time
 
-def main() :
-    CDA_DataFrame, CPNC_DataFrame, CREDIT_DataFrame, DEBIT_DataFrame = DataFrameFactory().makeDataFrame()
+start = time.time()
+def main():
+    CPNC_HashTable = HashTableFactory(DataFrameFactory().makeDataFrame(df_name="Cheque-Paid-Not-Credited", \
+                                                                       df_id="CPNC", \
+                                                                       location=os.getcwd().split(r"\live")[
+                                                                                    0] + r"\assets\cpnc\cpnc.xlsx")).makeHashTable()
 
-    # for t in CPNC_DataFrame.get_transactions():
-    #     print(t)
-    # print(CPNC_DataFrame)
-    # for t in CREDIT_DataFrame.get_transactions():
-    #     print(t)
-    # print(CREDIT_DataFrame)
-    # for t in DEBIT_DataFrame.get_transactions():
-    #     print(t)
-    # print(DEBIT_DataFrame)
-    # for t in CDA_DataFrame.get_transactions():
-    #     print(t)
-    # print(CDA_DataFrame)
+    CREDIT_HashTable = HashTableFactory(DataFrameFactory().makeDataFrame(df_name="Credits", \
+                                                                         df_id="CR", \
+                                                                         location=os.getcwd().split("\\live")[
+                                                                                      0] + "\\assets\\cr\\credit.xlsx")).makeHashTable()
 
-    print(DEBIT_DataFrame, "\n", CREDIT_DataFrame, "\n", CDA_DataFrame, "\n", CPNC_DataFrame)
-    CDA_HashTable = HashTableFactory(data_frame=CDA_DataFrame).makeHashTable()
-    CPNC_HashTable = HashTableFactory(data_frame=CPNC_DataFrame).makeHashTable()
-    CREDIT_HashTable = HashTableFactory(data_frame=CREDIT_DataFrame).makeHashTable()
-    DEBIT_HashTable = HashTableFactory(data_frame=DEBIT_DataFrame).makeHashTable()
+    CDA_HashTable = HashTableFactory(DataFrameFactory().makeDataFrame(df_name="Cheques-Dishonor-Action", \
+                                                                      df_id="CDA", \
+                                                                      location=os.getcwd().split("\\live")[
+                                                                                   0] + "\\assets\\cda\\cda.xls")).makeHashTable()
 
+    DEBIT_HashTable = HashTableFactory(DataFrameFactory().makeDataFrame(df_name="Debits", \
+                                                                        df_id="DR", \
+                                                                        location=os.getcwd().split("\\live")[
+                                                                                     0] + "\\assets\\dr\\debit.xlsx")).makeHashTable()
 
+    TransactionFilter(df1=CPNC_HashTable,
+                      df2=CREDIT_HashTable).trigger_filter()
+    print("--- %s seconds TOTAL---" % (time.time() - start))
 
 if __name__ == '__main__':
     main()

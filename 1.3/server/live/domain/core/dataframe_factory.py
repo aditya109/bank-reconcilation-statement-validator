@@ -9,150 +9,150 @@ from live.domain.core.dataframe import DataFrame
 
 # start = time.time()
 class DataFrameFactory:
-    def makeDataFrame(self):
-        """TODO trying to manufacture dataframe"""
+    @staticmethod
+    def build_date_step(workbook, cell, transaction:TransactionBuilder):
+        """Adds transaction_date to TransactionBuilder
 
-        # CDA Input
-        wb = xlrd.open_workbook(os.getcwd().split("\\live")[0]+"\\assets\\cda\\cda.xls")
+        @param workbook: excel workbook
+        @type workbook: Book
+        @param cell: cell data
+        @type cell: str/int/float
+        @param transaction: builder object
+        @type transaction: TransactionBuilder
+        @return: transaction builder object
+        @rtype: TransactionBuilder
+        """
+
+        # checking for empty cell
+        if cell == "":
+            return transaction.onTransactionDate("NA")
+        else:
+            # converting normal date cell
+            return transaction.onTransactionDate(str(datetime.datetime(*xlrd.xldate_as_tuple(cell, workbook.datemode)).strftime("%d-%b-%Y")))
+
+    @staticmethod
+    def build_id_step(cell, transaction:TransactionBuilder):
+        """Adds cheques_id to TransactionBuilder
+
+        @param cell: cell data
+        @type cell: str/int/float
+        @param transaction: builder object
+        @type transaction: TransactionBuilder
+        @return: transaction builder object
+        @rtype: TransactionBuilder
+        """
+        # checking for empty cell
+        if cell == "":
+            return transaction.withChequeID("NA")
+        else:
+            # checking for str type cell
+            if type(cell) == str:
+
+                # checking if cell is `CASH`
+                if cell == "CASH":
+                    return transaction.withChequeID("CASH")
+
+                # checking if cell has `CASH RECEIPT` in it, i.e., `AT BHAGALPUR -BHAGALPUR :- CASH RECEIPT`
+                elif len(re.findall(r'(CASH RECEIPT)', str(cell))) == 1:
+                    return transaction.withChequeID("CASH RECEIPT")
+
+                # checking if cell contains account number,i.e.,`AT BHAGALPUR -LIC OF INDIA/ 072110200013581`
+                elif len(re.findall(r'(\d{11,17})', str(cell))) != 0:
+                    return transaction.withChequeID(re.findall(r'(\d{11,17})', str(cell))[0])
+                # checking for just cheque numbers in cell
+                elif len(re.findall(r'(\d{1,6})', str(cell))) != 0:
+                    cell = re.findall(r'(\d{1,6})', str(cell))[0]
+                    # making cheque numbers at least 6 digits
+                    if len(str(cell)) != 6:
+                        if len(str(cell)) != 6:
+                            zeroes = 6 - len(str(cell))
+                            temp = ""
+                            for zero in range(zeroes):
+                                temp = temp + "0"
+                            cell = temp + str(cell)
+                    return transaction.withChequeID(str(cell))
+                else:
+                    return transaction.withChequeID("NA")
+
+            # checking for int/float type cell
+            elif type(cell) == int or type(cell) == float:
+                cell = str(int(cell))
+                # making cheque numbers at least 6 digits
+                if len(str(cell)) != 6:
+                    if len(str(cell)) != 6:
+                        zeroes = 6 - len(str(cell))
+                        temp = ""
+                        for zero in range(zeroes):
+                            temp = temp + "0"
+                        cell = temp + str(cell)
+                return transaction.withChequeID(cell)
+
+    @staticmethod
+    def build_amount_step(cell, transaction:TransactionBuilder):
+        """Adds transaction_amount to TransactionBuilder
+
+         @param cell: cell data
+        @type cell: str/int/float
+        @param transaction: builder object
+        @type transaction: TransactionBuilder
+        @return: transaction builder object
+        @rtype: TransactionBuilder
+        """
+        if cell == "":
+            return transaction.withTransactionAmount(0)
+        else:
+            return transaction.withTransactionAmount(cell)
+
+
+
+    @staticmethod
+    def makeDataFrame(df_name, df_id, location):
+        """Extracts rows as transactions for excel files, and manufactures DataFrame off
+        transactions
+
+        @type df_name:  str
+        @type df_id:    str
+        @type location: str
+
+        @return: manufactured DataFrame
+        @rtype: DataFrame
+        """
+
+        # opening excel workbook on location
+        wb = xlrd.open_workbook(location)
+
+        # accessing the first sheet from `wb`
         sheet = wb.sheet_by_index(0)
-        CDA_DataFrame = DataFrame("Cheque-Dishonour-Action", "CDA")
 
-        rows = sheet.nrows
-        cols = sheet.ncols
+        # getting total rows and total columns from `sheet`
+        rows, cols = sheet.nrows, sheet.ncols
 
+        # initializing Dataframe object with `df_name` and `df_id`
+
+        dataframe = DataFrame(name=df_name, id=df_id)
+
+        # iterating for each row
         for i in range(rows):
             transaction = TransactionBuilder().start()
             for j in range(cols):
                 cell = sheet.cell_value(i, j)
                 if j == 0:
-                    # transaction date
-                    if cell == "":
-                        transaction = transaction.onTransactionDate(None)
-                    else:
-                        transaction = transaction.onTransactionDate(str(xlrd.xldate.xldate_as_datetime(cell, wb.datemode).strftime("%d-%b-%Y")))
+                    # adding transaction date to the builder
+                    transaction = DataFrameFactory().build_date_step(workbook=wb, cell=cell, transaction=transaction)
                 elif j == 1:
-                    # cheque id
-                    if cell == "":
-                        transaction = transaction.withChequeID(-1)
-                    else:
-                        transaction = transaction.withChequeID(int(cell))
+                    # adding cheques_id to the builder
+                    transaction = DataFrameFactory().build_id_step(cell=cell, transaction=transaction)
                 else:
-                    if cell == "":
-                        transaction = transaction.withTransactionAmount(-1)
-                    else:
-                        transaction = transaction.withTransactionAmount(float(cell))
+                    # adding transaction_amount to the builder
+                    transaction = DataFrameFactory().build_amount_step(cell=cell, transaction=transaction)
+            # completed build of solitary transaction
             transaction = transaction.build()
-            CDA_DataFrame.add_transaction(transaction=transaction)
+            # adding dataframe
+            dataframe.add_transaction(transaction=transaction)
 
-        # CPNC Input
-        wb = xlrd.open_workbook(os.getcwd().split("\\live")[0]+"\\assets\\cpnc\\cpnc.xlsx")
-        sheet = wb.sheet_by_index(0)
-        CPNC_DataFrame = DataFrame("Cheque-Paid-Not-Credited", "CPNC")
-
-        rows = sheet.nrows
-        cols = sheet.ncols
-
-        for i in range(rows):
-            transaction = TransactionBuilder().start()
-            for j in range(cols):
-                cell = sheet.cell_value(i, j)
-
-                if cell == "TOTAL" : break
-                else:
-                    if j == 0:
-                        # transaction date
-                        if cell == "":
-                            transaction = transaction.onTransactionDate(None)
-                        else:
-                            transaction = transaction.onTransactionDate(str(xlrd.xldate.xldate_as_datetime(cell, wb.datemode).strftime("%d-%b-%Y")))
-                    elif j == 1:
-                        # cheque id
-                        if cell == ""or cell == "CASH":
-                            transaction = transaction.withChequeID(cell)
-                        else:
-                            transaction = transaction.withChequeID((int(cell)))
-                    else:
-                        if cell == "":
-                            transaction = transaction.withTransactionAmount(-1)
-                        else:
-                            transaction = transaction.withTransactionAmount(float(cell))
-            transaction = transaction.build()
-            CPNC_DataFrame.add_transaction(transaction=transaction)
-
-        # Credits Input
-        wb = xlrd.open_workbook(os.getcwd().split("\\live")[0]+"\\assets\\cr\\credit.xlsx")
-        sheet = wb.sheet_by_index(0)
-        CREDIT_DataFrame = DataFrame("Credits", "CR")
-
-        rows = sheet.nrows
-        cols = sheet.ncols
-
-        for i in range(rows):
-            transaction = TransactionBuilder().start()
-            for j in range(cols):
-                cell = sheet.cell_value(i, j)
-                if j == 0:
-                    # transaction date
-                    if cell == "":
-                        transaction = transaction.onTransactionDate(None)
-                    else:
-                        transaction = transaction.onTransactionDate(str(datetime.datetime(*xlrd.xldate_as_tuple(cell, wb.datemode)).strftime("%d-%b-%Y")))
-                elif j == 1:
-                    # cheque id
-                    if len(re.findall(r'(\d{11,17})', cell)) != 0:
-                        transaction = transaction.withChequeID(re.findall(r'(\d{11,17})', cell)[0])
-                    elif len(re.findall(r'(\d{6})', cell)) != 0:
-                        transaction = transaction.withChequeID(re.findall(r'(\d{1,6})', cell)[0])
-                    elif len(re.findall(r'(CASH RECEIPT)', cell)) == 1:
-                        transaction = transaction.withChequeID("CASH RECEIPT")
-                    else:
-                        transaction = transaction.withChequeID("NA")
-                else:
-                    # transaction amount
-                    if cell == "":
-                        transaction = transaction.withTransactionAmount(-1)
-                    else:
-                        transaction = transaction.withTransactionAmount(float(cell))
-            transaction = transaction.build()
-            CREDIT_DataFrame.add_transaction(transaction=transaction)
-
-        # Debit Input
-        wb = xlrd.open_workbook(os.getcwd().split("\\live")[0]+"\\assets\\dr\\debit.xlsx")
-        sheet = wb.sheet_by_index(0)
-        DEBIT_DataFrame = DataFrame("Debits", "DR")
-
-        rows = sheet.nrows
-        cols = sheet.ncols
-
-        for i in range(rows):
-            transaction = TransactionBuilder().start()
-            for j in range(cols):
-                cell = sheet.cell_value(i, j)
-                if j == 0:
-                    if cell == "":
-                        transaction = transaction.onTransactionDate(None)
-                    else:
-                        transaction = transaction.onTransactionDate(str(datetime.datetime(*xlrd.xldate_as_tuple(cell, wb.datemode)).strftime("%d-%b-%Y")))
-                elif j == 1:
-                    # cheque id
-                    if len(re.findall(r'(\d{11,17})', cell)) != 0:
-                        transaction = transaction.withChequeID(re.findall(r'(\d{11,17})', cell)[0])
-                    elif len(re.findall(r'(\d{6})', cell)) != 0:
-                        transaction = transaction.withChequeID(re.findall(r'(\d{1,6})', cell)[0])
-                    elif len(re.findall(r'(CASH RECEIPT)', cell)) == 1:
-                        transaction = transaction.withChequeID("CASH RECEIPT")
-                    else:
-                        transaction = transaction.withChequeID("NA")
-                else:
-                    transaction = transaction.withTransactionAmount(float(cell))
-            transaction = transaction.build()
-            DEBIT_DataFrame.add_transaction(transaction=transaction)
-        # print(DEBIT_DataFrame,"\n" , CREDIT_DataFrame, "\n" ,CDA_DataFrame, "\n" ,CPNC_DataFrame)
-
-        return CDA_DataFrame, CPNC_DataFrame, CREDIT_DataFrame, DEBIT_DataFrame
+        return dataframe
 
 
-# DataFrameFactory().makeDataFrame()
 # print("--- %s seconds ---" % (time.time() - start))
 
 # --- 0.2559232711791992 seconds ---

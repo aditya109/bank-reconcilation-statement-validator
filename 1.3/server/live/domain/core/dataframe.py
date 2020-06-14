@@ -9,13 +9,11 @@ class DataFrame:
         self.df_name = name
         self.df_id = id
         self.df_len = 0
-        self.__transactions_amount_total = 0
         self.__transactions = []
 
     def add_transaction(self, transaction:Transaction)-> bool:
         self.__transactions.append(transaction)
         self.df_len += 1
-        self.__transactions_amount_total += transaction.transaction_amount
 
     def get_transactions(self):
         return self.__transactions
@@ -24,7 +22,6 @@ class DataFrame:
         return f"DataFrame Details:\n" \
                f"DF_Name                  : {self.df_name}\n" \
                f"DF_ID                    : {self.df_id}\n" \
-               f"DF_Total_Transaction_AMT : {self.__transactions_amount_total}\n" \
                f"DF_Dimensions            :{ self.df_len}\n"
 
 
