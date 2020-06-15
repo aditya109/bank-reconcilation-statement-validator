@@ -1,32 +1,41 @@
 import React, { useState } from "react";
-import Modal from "react-bootstrap/Modal";
+import * as ReactBoostStrap from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 
-import "../styles/css/components/disclaimer_content.css";
+import "../styles/css/components/custom_modal.css";
 
 const TModal = (props) => {
   const [show, setShow] = useState(false);
   return (
-    <div>
-      <Button variant={props.attribute.variant} onClick={() => setShow(true)}>
-        {props.attribute.button_text}
-      </Button>
-      <Modal
+    <div className="parent-modal-container">
+      <div className="view-widget-container">
+        <ReactBoostStrap.InputGroup className="mb-4">
+          <ReactBoostStrap.Button
+            variant={props.attribute.variant}
+            onClick={() => setShow(true)}
+            size="lg"
+          >
+            {props.attribute.button_text}
+          </ReactBoostStrap.Button>
+        </ReactBoostStrap.InputGroup>
+      </div>
+      <ReactBoostStrap.Modal
         show={show}
         onHide={() => setShow(false)}
         dialogClassName="modal-90w"
         aria-labelledby="example-custom-modal-styling-title"
         centered="true"
+        size="xl"
       >
-        <Modal.Header closeButton>
-          <Modal.Title id="example-custom-modal-styling-title">
+        <ReactBoostStrap.Modal.Header closeButton>
+          <ReactBoostStrap.Modal.Title id="example-custom-modal-styling-title">
             {props.attribute.modal_title}
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <span>{props.attribute.component}</span>
-        </Modal.Body>
-      </Modal>
+          </ReactBoostStrap.Modal.Title>
+        </ReactBoostStrap.Modal.Header>
+        <ReactBoostStrap.Modal.Body>
+          <p>{props.attribute.component}</p>
+        </ReactBoostStrap.Modal.Body>
+      </ReactBoostStrap.Modal>
     </div>
   );
 };

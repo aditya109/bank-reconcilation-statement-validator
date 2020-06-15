@@ -4,6 +4,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 .main-home-container {
   margin: 0;
@@ -30,19 +31,108 @@
   font-size: 75px;
   font-weight: 900;
 }
-@media screen and (min-width: 601px) {
-  .header-text {
-    font-size: 75px;
-  }
-}
-@media screen and (max-width: 600px) {
-  .header-text {
-    font-size: 37px;
-  }
-}
 
 .intro-text {
   font-family: "Roboto", sans-serif;
   text-align: left;
   font-size: xx-large;
+  padding-top: 5vh;
+}
+.main-home-content-container{
+
+}
+.diclaimer-content{
+  font-family: 'Fira Code', monospace;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+}
+.get-started {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  margin-left: 2vh;
+  /* justify-content: center; */
+}
+.p-class {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  font-size: 3rem;
+  background: linear-gradient(to bottom, rgb(248, 9, 9), rgb(255, 96, 96) 60%, rgb(253, 199, 199) 60%, rgb(255, 255, 255) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-repeat: no-repeat;
+  transition: background 0.2s ease-out;
+  white-space: nowrap;
+}
+.span-class {
+  position: relative;
+}
+.span-class:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 15px;
+  background: rgb(211, 13, 13);
+  bottom: 30px;
+  transition: all 0.2s ease-out;
+}
+
+.p-class:hover {
+  background-position: 0 11px;
+}
+
+.span-class:hover:before {
+  transform: translateY(10px)
+}
+
+
+@media screen and (min-width: 601px) {
+  .header-text {
+    font-size: 75px;
+  }
+  .intro-text {
+    font-size: xx-large;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .main-home-container {
+    
+  }
+  .header-text {
+    font-size: 37px;
+    text-align: center;
+
+  }
+  .intro-text {
+    font-size: large;
+    padding-top: 2vh;
+    text-align: center;
+  }
+  .main-home-content-container {
+  }
+  .diclaimer-content{
+  }
+  .span-class:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 15px;
+    background: rgb(211, 13, 13);
+    bottom: 30px;
+    transition: all 0.3s ease-out;
+  }
+
+  .p-class:hover {
+    background-position: 0 11px;
+  }
+  
+  .span-class:hover:before {
+    transform: translateY(10px)
+  }
 }

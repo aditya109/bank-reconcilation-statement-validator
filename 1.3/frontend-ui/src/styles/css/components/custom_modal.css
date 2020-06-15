@@ -1,0 +1,20 @@
+.parent-modal-container {
+}
+.view-widget-container {
+    margin-left: 2vh;
+    margin-top: 35vh;
+}
+
+@media screen and (min-width: 601px) {
+    .view-widget-container{
+
+    }
+}
+@media screen and (max-width: 600px) {
+    .view-widget-container{
+        margin-top: 15vh;
+    }
+}
+.btn-view-modal-button-color {
+
+}
