@@ -66,7 +66,6 @@ class HomePage extends React.Component {
                             <div class="input-title">If you agree, please check to continue.
                         </div>
                     </div>
-                    
                 </div>
                 <div className="continue-button-div" >
                     <button 
