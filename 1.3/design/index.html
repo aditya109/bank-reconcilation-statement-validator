@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="styles/scss/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+
+    <title>Bank Reconcilation Statement Validator</title>
+  </head>
+
+  <body>
+    <script src="./app.js"></script>
+    <script
+      class="jsbin"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
+    ></script>
+    <header>
+      <div class="container">
+        <nav>
+          <h1 class="brand">
+            <a href="index.html">BRS<span>V</span></a>
+          </h1>
+          <ul>
+            <li><a href="#">Upload</a></li>
+            <li><a href="#">Results</a></li>
+            <li><a class="signin-signup">Sign Up/Sign In</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero-section">
+      <div class="hero">
+        <div class="head">
+          <span class="head-text">
+            Bank Reconcilation<br />Statement Validation
+          </span>
+          <span class="subtitle-text">
+            Simple Solution To Tedious BRS Solving Process
+          </span>
+          <div class="content">
+            <div class="get-started">
+              <button class="get-started-btn">
+                <span>
+                  Get Started
+                </span>
+              </button>
+            </div>
+            <div class="nav-to-tutorial">
+              <i class="fas fa-play-circle"></i>
+              <span class="content-text">Learn More</span>
+            </div>
+          </div>
+        </div>
+        <img src="./assets/undraw_revenue_3osh.svg" />
+      </div>
+
+      <div class="wave" />
+    </section>
+
+    <section class="upload-section">
+      <div class="click-upload">
+        <div class="upload-text">
+          <span>Please choose a file</span>
+        </div>
+        <div class="file-upload">
+          <input type="file" />
+          <i class="fa fa-arrow-up"></i>
+        </div>
+      </div>
+      <div class="or"><span>OR</span></div>
+      <div class="drop-zone">
+        <div class="file-upload-wrap">
+          <input
+            class="file-upload-input"
+            type="file"
+            onchange="readURL(this);"
+            accept="file/*"
+          />
+          <div class="drag-text">
+            <h3>Drag and drop a file</h3>
+          </div>
+        </div>
+        <div class="file-upload-content">
+          <div class="file-title-wrap">
+            <button type="button" onclick="removeUpload()" class="remove-file">
+              Remove <span class="file-title">Uploaded File</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="upload-progress">
+        <div class="container-2">
+          <div class="btn btn-two">
+            <span>UPLOAD</span>
+          </div>
+        </div>
+        <div class="progress-bar-div">
+          <div class="progress">
+            <div class="progress-value"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="results-section">
+      <h1 class="results-header">
+        <span class="head-text">Results</span>
+      </h1>
+      <div class="results-content">
+        <div class="result-cards">
+          <div class="result-card">
+            <div class="card">
+              <div class="card-image-1">
+                <h1 class="title-text-head">
+                  <span class="title-text">
+                    CPNC
+                  </span>
+                </h1>
+              </div>
+              <div class="card-text">
+                <span class="subtitle">
+                  6 seconds ago
+                </span>
+                <h2>Cheques Paid Not Cashed</h2>
+                <div class="table-data">
+                  <table class="metadata-table">
+                    <tr class="table-head-row">
+                      <th class="table-head">Pre-Evaluation</th>
+                    </tr>
+                    <tr class="table-row">
+                      <td class="col-1">Total Transactions:</td>
+                      <td class="col-2">170000</td>
+                    </tr>
+
+                    <tr class="table-row">
+                      <td class="col-1">Grand Total:</td>
+                      <td class="col-2"><span>&#8377;&nbsp; 340k</span></td>
+                    </tr>
+                    <tr class="table-head-row">
+                      <th class="table-head">Post-Evaluation</th>
+                    </tr>
+
+                    <tr class="table-row">
+                      <td class="col-1">Transactions:</td>
+                      <td class="col-2">170000</td>
+                    </tr>
+
+                    <tr class="table-row">
+                      <td class="col-1">Grand Total :</td>
+                      <td class="col-2"><span>&#8377; 340k </span></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div class="card-stats">
+                <div class="stat">
+                  <div class="value">&#8377; 3 lakh</div>
+                  <div class="type">Cash Found</div>
+                </div>
+
+                <div class="stat">
+                  <div class="value">&#8377; 34 k</div>
+                  <div class="type">Cash Not Found</div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-image-1">
+                <h1 class="title-text-head">
+                  <span class="title-text">
+                    CDA
+                  </span>
+                </h1>
+              </div>
+              <div class="card-text">
+                <span class="subtitle">
+                  7 seconds ago
+                </span>
+                <h2>Cheques Dishonor Action</h2>
+                <div class="table-data">
+                  <table class="metadata-table">
+                    <tr class="table-head-row">
+                      <th class="table-head">Pre-Evaluation</th>
+                    </tr>
+                    <tr class="table-row">
+                      <td class="col-1">Total Transactions:</td>
+                      <td class="col-2">170000</td>
+                    </tr>
+
+                    <tr class="table-row">
+                      <td class="col-1">Grand Total:</td>
+                      <td class="col-2"><span>&#8377;&nbsp; 340k</span></td>
+                    </tr>
+                    <tr class="table-head-row">
+                      <th class="table-head">Post-Evaluation</th>
+                    </tr>
+
+                    <tr class="table-row">
+                      <td class="col-1">Transactions:</td>
+                      <td class="col-2">170000</td>
+                    </tr>
+
+                    <tr class="table-row">
+                      <td class="col-1">Grand Total :</td>
+                      <td class="col-2"><span>&#8377; 340k </span></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div class="card-stats">
+                <div class="stat">
+                  <div class="value">&#8377; 3 lakh</div>
+                  <div class="type">Cash Found</div>
+                </div>
+
+                <div class="stat">
+                  <div class="value">&#8377; 34 k</div>
+                  <div class="type">Cash Not Found</div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-image-1">
+                <h1 class="title-text-head">
+                  <span class="title-text">
+                    CR
+                  </span>
+                </h1>
+              </div>
+              <div class="card-text">
+                <span class="subtitle">
+                  6 seconds ago
+                </span>
+                <h2>Credits</h2>
+                <div class="table-data">
+                  <table class="metadata-table">
+                    <tr class="table-head-row">
+                      <th class="table-head">Pre-Evaluation</th>
+                    </tr>
+                    <tr class="table-row">
+                      <td class="col-1">Total Transactions:</td>
+                      <td class="col-2">170000</td>
+                    </tr>
+
+                    <tr class="table-row">
+                      <td class="col-1">Grand Total:</td>
+                      <td class="col-2"><span>&#8377;&nbsp; 340k</span></td>
+                    </tr>
+                    <tr class="table-head-row">
+                      <th class="table-head">Post-Evaluation</th>
+                    </tr>
+
+                    <tr class="table-row">
+                      <td class="col-1">Transactions:</td>
+                      <td class="col-2">170000</td>
+                    </tr>
+
+                    <tr class="table-row">
+                      <td class="col-1">Grand Total :</td>
+                      <td class="col-2"><span>&#8377; 340k </span></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div class="card-stats">
+                <div class="stat">
+                  <div class="value">&#8377; 3 lakh</div>
+                  <div class="type">Cash Found</div>
+                </div>
+
+                <div class="stat">
+                  <div class="value">&#8377; 34 k</div>
+                  <div class="type">Cash Not Found</div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-image-1">
+                <h1 class="title-text-head">
+                  <span class="title-text">
+                    DR
+                  </span>
+                </h1>
+              </div>
+              <div class="card-text">
+                <span class="subtitle">
+                  6 seconds ago
+                </span>
+                <h2>Debits</h2>
+                <div class="table-data">
+                  <table class="metadata-table">
+                    <tr class="table-head-row">
+                      <th class="table-head">Pre-Evaluation</th>
+                    </tr>
+                    <tr class="table-row">
+                      <td class="col-1">Total Transactions:</td>
+                      <td class="col-2">170000</td>
+                    </tr>
+
+                    <tr class="table-row">
+                      <td class="col-1">Grand Total:</td>
+                      <td class="col-2"><span>&#8377;&nbsp; 340k</span></td>
+                    </tr>
+                    <tr class="table-head-row">
+                      <th class="table-head">Post-Evaluation</th>
+                    </tr>
+
+                    <tr class="table-row">
+                      <td class="col-1">Transactions:</td>
+                      <td class="col-2">170000</td>
+                    </tr>
+
+                    <tr class="table-row">
+                      <td class="col-1">Grand Total :</td>
+                      <td class="col-2"><span>&#8377; 340k </span></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div class="card-stats">
+                <div class="stat">
+                  <div class="value">&#8377; 3 lakh</div>
+                  <div class="type">Cash Found</div>
+                </div>
+
+                <div class="stat">
+                  <div class="value">&#8377; 34 k</div>
+                  <div class="type">Cash Not Found</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="results-btn">
+        <div class="container">
+          <div class="button">
+            <div class="icon">
+              <i class="fas fa-save"></i>
+            </div>
+          </div>
+          <p>Save Generated BRS file</p>
+        </div>
+        <div class="container">
+          <div class="button">
+            <div class="icon">
+              <i class="fas fa-book-reader"></i>
+            </div>
+          </div>
+          <p>View File Compilation</p>
+        </div>
+        <div class="container">
+          <div class="button">
+            <div class="icon">
+              <i class="fas fa-chart-pie"></i>
+            </div>
+          </div>
+          <p>View Chord Diagram</p>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="footer">
+        <div class="row">
+          <div class="description">
+            <h2>
+              <span>B</span>ank <span>R</span>econcilation<br> 
+              <span>S</span>tatement <span>V</span>alidator
+            </h2>
+          </div>
+          <div class="pages">
+            <ul>
+              <li><a class="pages-link" href="#">Home</a></li>
+              <li><a class="pages-link" href="#">Uploads</a></li>
+              <li><a class="pages-link" href="#">Results</a></li>
+              <li><a class="pages-link" href="#">Know More</a></li>
+            </ul>
+          </div>
+          <div class="socio">
+            <h3>Follow us</h3>
+            <div class="links">
+              <ul>
+                <li>
+                  <button><i class="fab fa-github"></i></button>
+                </li>
+                <li>
+                  <button><i class="fab fa-linkedin-in"></i></button>
+                </li>
+                <li>
+                  <button><i class="fab fa-twitter"></i></button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
