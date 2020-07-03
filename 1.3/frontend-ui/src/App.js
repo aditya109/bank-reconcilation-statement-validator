@@ -1,10 +1,10 @@
 import React from "react";
 import "./App.css";
-import Header from "./presentational_components/Header";
-import Hero from "./presentational_components/Hero";
-import Upload from "./presentational_components/Upload";
-import Result from "./presentational_components/Result";
-import Footer from "./presentational_components/Footer";
+import Header from "./container_components/Header";
+import Hero from "./presentational_components/Hero/Hero";
+import Upload from "./container_components/Upload";
+import Result from "./presentational_components/Result/Result";
+import Footer from "./presentational_components/Footer/Footer";
 
 function App() {
   return (
