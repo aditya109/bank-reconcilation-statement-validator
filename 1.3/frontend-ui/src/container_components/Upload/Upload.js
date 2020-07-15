@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles/upload.scss";
+import "./upload.scss";
 import axios from "axios";
 
 export default class Upload extends React.Component {
@@ -14,7 +14,7 @@ export default class Upload extends React.Component {
   }
   onFormSubmit(e) {
     e.preventDefault();
-    console.log(e.target.value)
+    console.log(e.target.value);
     this.fileUpload(this.state.file).then((response) => {
       console.log(response.data);
     });
@@ -23,7 +23,6 @@ export default class Upload extends React.Component {
     this.setState({ file: e.target.files[0] });
   }
   fileUpload(file) {
-    const url = "http://localhost:5000/upload";
     const formData = new FormData();
     formData.append("excel", file);
     axios
@@ -56,7 +55,7 @@ export default class Upload extends React.Component {
           <div className="or">
             <span>OR</span>
           </div>
-          {/* <div className="drop-zone">
+          <div className="drop-zone">
             <div className="file-upload-wrap">
               <input
                 className="file-upload-input"
@@ -69,17 +68,13 @@ export default class Upload extends React.Component {
             </div>
             <div className="file-upload-content">
               <div className="file-title-wrap">
-                <button
-                  type="button"
-                  onclick="removeUpload()"
-                  className="remove-file"
-                >
+                <button type="button" className="remove-file">
                   Remove <span className="file-title">Uploaded File</span>
                 </button>
               </div>
             </div>
-          </div> */}
-          <button type="submit">Upload</button>
+          </div>
+          <button className="submit-btn" type="submit">Upload</button>
           {/* <div className="upload-progress">
           <div className="container-2">
             <div className="btn btn-two">

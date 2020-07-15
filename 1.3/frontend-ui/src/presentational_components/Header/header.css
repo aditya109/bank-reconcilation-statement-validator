@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.navbar-container{
+  width: 100%;
+}
+.navbar {
+  background: linear-gradient(to right, #f27121, #e94057, #8a2387);
+  padding-left: 3rem;
+}
+.navbar-light .navbar-brand {
+  font-family: "IBM Plex Serif", serif;
+  font-size: 30px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  padding-left: 2vh;
+  padding-right: 2vh;
+  font-family: "Roboto Condensed", sans-serif;
+  letter-spacing: 0.5px;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 300;
+  color: rgb(255, 255, 255);
+  border-radius: 4px;
+}
+.navbar-light .navbar-nav .nav-link:hover {
+  color: rgb(49, 46, 46);
+  font-weight: 500;
+  background: linear-gradient(to right, #8e9eab7c, #eef2f354);
+}
+

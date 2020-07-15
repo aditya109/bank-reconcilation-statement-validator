@@ -12,6 +12,17 @@ class IStat:
         self.benchmark_metadata = BenchmarkMetadata()
         self.record_metadata = RecordMetadata()
 
+    def __str__(self):
+        formatted_stats = str()
+        formatted_stats = f"{formatted_stats}Individual Stats:\n" \
+                          f"======================================\n" \
+                          f"-----------NAME METADATA--------------\n" \
+                          f"DataFrame Full Name : {self.name_metadata.df_name_full}\n" \
+                          f"DataFrame Alias     : {self.name_metadata.df_name_short}\n" \
+                          f"=======================================\n" \
+                          f"---------BENCHMARK METADATA------------\n" \
+                          f"Duration >>>>" \
+                          f"File Split : {}"
 
 class NameMetadata:
 

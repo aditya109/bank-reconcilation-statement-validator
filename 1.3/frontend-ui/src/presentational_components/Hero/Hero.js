@@ -1,6 +1,6 @@
 import React from "react";
 import "./hero.scss";
-import LeftImage from '../assets/left-place.svg';
+import LeftImage from "../assets/left-place.svg";
 
 function Hero() {
   return (
@@ -22,12 +22,12 @@ function Hero() {
               </button>
             </div>
             <div className="nav-to-tutorial">
-              <i className="fas fa-play-circle"></i>
-              <span className="content-text"> Learn More</span>
+              <i className="fas fa-play-circle"></i>&nbsp;
+              <span className="content-text">Learn More</span>
             </div>
           </div>
         </div>
-        <img src={LeftImage} alt="bg"/>
+        <img src={LeftImage} alt="bg" />
       </div>
       <div className="wave" />
     </div>

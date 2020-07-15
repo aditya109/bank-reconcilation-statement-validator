@@ -3,6 +3,7 @@ import time
 
 from live.lib.domain.core.dataframe_factory import DataFrameFactory
 from live.lib.domain.module.hashtable_factory import HashTableFactory
+from live.lib.services.transaction_filter import TransactionFilter
 
 start = time.time()
 
@@ -20,8 +21,6 @@ def filter_trigger():
     file = INPUT_FILE_SOURCE_DIRECTORY + f"\\{newest}"
     os.chdir(path)
 
-
-
     CPNC_HashTable = HashTableFactory(DataFrameFactory().makeDataFrame(df_name="Cheque-Paid-Not-Credited",
                                                                        df_id="CPNC",
                                                                        location=file)).makeHashTable()
@@ -38,10 +37,9 @@ def filter_trigger():
                                                                         df_id="dr",
                                                                         location=file)).makeHashTable()
     #
-    # TransactionFilter(df1=CPNC_HashTable,
-    #                   df2=CREDIT_HashTable).trigger_filter()
+    TransactionFilter(df1=CPNC_HashTable,
+                      df2=CREDIT_HashTable).trigger_filter()
     # print("--- %s seconds TOTAL---" % (time.time() - start))
-    pass
 
 
 filter_trigger()

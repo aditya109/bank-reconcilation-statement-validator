@@ -23,7 +23,7 @@ class HashTable:
         """
         index = HashTable.hash_item(item.cheques_id)
         if index not in self.map:
-            self.map[index ] =[item]
+            self.map[index] =[item]
         else:
             self.map[index].append(item)
 
@@ -41,13 +41,20 @@ class HashTable:
         else:
             print("Transaction Not Found !")
 
-    def remove(self, index):
+    def remove(self, index, amt):
         """
         Removes the key-value on index place
         :param item: int
         :return:
         """
-        del self.map[index]
+        if len(self.map[index]) == 0:
+            del self.map[index]
+
+        for idx, record in enumerate(self.map[index]):
+            if record.transaction_amount == amt:
+                self.map[index].pop(idx)
+                return
+
 
     def __str__(self):
         return f"HashTable :\n" \

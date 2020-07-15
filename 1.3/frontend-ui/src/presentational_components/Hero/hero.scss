@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
 .hero-section {
   width: 100%;
   position: relative;
@@ -11,6 +11,7 @@
     url(../assets/bg-left.jpg) center no-repeat;
   background-size: cover;
   background-attachment: fixed;
+
   .hero {
     display: flex;
     padding: 3rem;
@@ -23,16 +24,15 @@
       flex-direction: column;
       .head-text {
         font-family: "Montserrat", sans-serif;
-        font-size: 5em;
+        font-size: 6em;
         color: #00d9ff;
         letter-spacing: 2px;
         span {
-          color:white;
-
+          color: white;
         }
       }
       .subtitle-text {
-        font-size: 1.75em;
+        font-size: 1.95em;
         font-family: "Roboto Condensed", sans-serif;
         letter-spacing: 1px;
         color: white;
@@ -53,10 +53,11 @@
               font-weight: 700;
             }
             &:hover {
+              background: linear-gradient(to right, #f27121, #e94057, #8a2387);
               color: aliceblue;
               -webkit-text-stroke-width: 0.25px;
-              -webkit-text-stroke-color: rgb(255, 255, 255);
-              text-shadow: 10px 10px 5px #fd5f00, 10px 10px 5px #fd8700;
+              -webkit-text-stroke-color: orangered;
+              text-shadow: 10px 10px 5px rgb(223, 113, 10);
               transition: ease 0.5s;
               span {
                 border: 3px white;
@@ -64,33 +65,55 @@
             }
           }
           .get-started-btn {
-            border-top: 2px solid rgb(253, 253, 253);
-            border-bottom: 2px solid rgb(253, 253, 253);
+            border-top: 2px solid rgb(247, 102, 6);
+            border-bottom: 2px solid rgb(247, 102, 6);
             padding: 1rem;
           }
           .get-started-btn:hover {
-            border-top: 2px solid rgb(247, 102, 6);
-            border-bottom: 2px solid rgb(248, 85, 9);
+            border-top: 2px solid white;
+            border-bottom: 2px solid white;
           }
         }
         .nav-to-tutorial {
           cursor: pointer;
           font-size: 1.6rem;
           span {
-            color: rgb(250, 250, 250);
+            animation: wave-color 10s linear infinite;
+
             font-weight: bold;
             text-transform: capitalize;
             font-family: "Open Sans", sans-serif;
           }
           i {
-            color: aliceblue;
+            animation: wave-color 10s linear infinite;
           }
           &:hover {
-
+            span {
+              animation: none;
+              text-decoration: underline;
+              color: #00d9ff;
+            }
             i {
-              background: -webkit-linear-gradient(#f27121, #e94057);
+              background: #00d9ff;
               -webkit-background-clip: text;
               -webkit-text-fill-color: transparent;
+            }
+          }
+          @keyframes wave-color {
+            0% {
+              color: #f27121;
+            }
+            25% {
+              color: #e94057;
+            }
+            50% {
+              color: #8a2387;
+            }
+            75% {
+              color: #e94057;
+            }
+            100% {
+              color: #f27121;
             }
           }
         }
@@ -150,6 +173,60 @@
     }
     100% {
       background-position: 0;
+    }
+  }
+}
+@media screen and (max-width: 761px) {
+  .hero-section {
+    .hero {
+      .head {
+        .head-text {
+          font-size: 5em;
+          text-align: center;
+          span {
+          }
+        }
+        .subtitle-text {
+          text-align: center;
+        }
+        .content {
+          padding: 2vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+
+          .get-started {
+            button {
+              span {
+              }
+              &:hover {
+                span {
+                }
+              }
+            }
+            .get-started-btn {
+            }
+            .get-started-btn:hover {
+            }
+          }
+          .nav-to-tutorial {
+            span {
+            }
+            i {
+            }
+            &:hover {
+              span {
+              }
+              i {
+              }
+            }
+          }
+        }
+      }
+      img {
+        display: none;
+      }
     }
   }
 }

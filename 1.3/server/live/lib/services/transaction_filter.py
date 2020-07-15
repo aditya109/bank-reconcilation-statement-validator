@@ -1,13 +1,12 @@
 import copy, time
 
 start = time.time()
+
+
 class TransactionFilter:
     def __init__(self, df1, df2):
-        self.matcher = df1
-        self.matching = df2
-
-        self.result_matcher = copy.deepcopy(self.matcher)
-        self.result_matching = copy.deepcopy(self.matching)
+        self.matcher = copy.copy(df1)
+        self.matching = copy.copy(df2)
 
         self.hash_match_success = 0
         self.transaction_match_success = 0
@@ -27,35 +26,37 @@ class TransactionFilter:
                 return True
         return False
 
-
     def trigger_filter(self):
         # print("Matching CPNC => Credits")
         # Iterating through each `hash, value` pair in self.matcher.map
         total_transactions = 0
+        redundant_transactions, non_redundant_transactions = list(), list()
         for hash, transactions in self.matcher.map.items():
             total_transactions += len(transactions)
             if self.find_hash(hash=hash):
                 self.hash_match_success += 1
                 print("Hash Match Found !")
-                print("Matching solitary transactions", end=" ")
+                print("Matching solitary transactions ▼▼▼")
                 for transaction in transactions:
                     if self.find_transaction(transaction=transaction, hash=hash):
                         self.transaction_match_success += 1
+                        redundant_transactions.append(transaction)
                         print("Amount Match Found !")
                     else:
+                        non_redundant_transactions.append(transaction)
                         print("Amount Not Match Found !")
             else:
                 print("Hash Match Not Found !")
             print("==============================================================================")
+            self.matching.istat.benchmark_metadata
 
 
-
-        print(f"total hash in CPNC: {len(list(self.matcher.map.keys()))}")
-        print(f"hash match found: {self.hash_match_success}")
-        print(f"hash match not found: {len(list(self.matcher.map.keys())) - self.hash_match_success}")
-        print(".......................................................................................")
-        print(f"total transactions in CPNC: {total_transactions}")
-        print(f"transaction match found: {self.transaction_match_success}")
-        print(f"transaction match not found: {total_transactions-self.transaction_match_success}")
-        print("........................................................................................")
-        print("--- %s seconds FILTER---" % (time.time() - start))
+        # print(f"total hash in CPNC: {len(list(self.matcher.map.keys()))}")
+        # print(f"hash match found: {self.hash_match_success}")
+        # print(f"hash match not found: {len(list(self.matcher.map.keys())) - self.hash_match_success}")
+        # print(".......................................................................................")
+        # print(f"total transactions in CPNC: {total_transactions}")
+        # print(f"transaction match found: {self.transaction_match_success}")
+        # print(f"transaction match not found: {total_transactions - self.transaction_match_success}")
+        # print("........................................................................................")
+        # print("--- %s seconds FILTER---" % (time.time() - start))
