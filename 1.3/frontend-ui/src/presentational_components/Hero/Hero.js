@@ -1,7 +1,6 @@
 import React from "react";
 import "./hero.scss";
 import LeftImage from "../assets/left-place.svg";
-
 function Hero() {
   return (
     <div className="hero-section">
@@ -16,13 +15,8 @@ function Hero() {
             Simple Solution To Tedious BRS Solving Process
           </span>
           <div className="content">
-            <div className="get-started">
-              <button className="get-started-btn">
-                <span>Get Started</span>
-              </button>
-            </div>
             <div className="nav-to-tutorial">
-              <i className="fas fa-play-circle"></i>&nbsp;
+              <i class="fas fa-question-circle"></i>&nbsp;
               <span className="content-text">Learn More</span>
             </div>
           </div>

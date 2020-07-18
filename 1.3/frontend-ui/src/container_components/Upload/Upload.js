@@ -41,7 +41,7 @@ export default class Upload extends React.Component {
 
   render() {
     return (
-      <section className="upload-section">
+      <section className="upload-section" id="upload">
         <form onSubmit={this.onFormSubmit}>
           <div className="click-upload">
             <div className="upload-text">
