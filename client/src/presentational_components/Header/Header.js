@@ -8,7 +8,6 @@ class Header extends React.Component {
     return (
       <div className="navbar-container">
         <Navbar collapseOnSelect expand="lg">
-          {/* <Navbar collapseOnSelect > */}
           <Navbar.Brand className="brand" href="#home">
             BRSV
           </Navbar.Brand>
