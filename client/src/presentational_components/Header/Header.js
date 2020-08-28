@@ -22,16 +22,26 @@ class Header extends React.Component {
                 offset={250}
                 duration={700}
               >
-                <Nav.Link className="link" href="#features">
+                <Nav.Link className="link" href="">
                   Uploads
                 </Nav.Link>
               </Link>
+              <Link
+                  activeClass="active"
+                  to="result"
+                  spy={true}
+                  smooth={true}
+                  offset={250}
+                  duration={700}
+              >
               <Nav.Link className="link" href="#features">
                 Results
               </Nav.Link>
-              <Nav.Link className="link" href="#features">
-                Login/SignUp
-              </Nav.Link>
+              </Link>
+              {/*TODO LOGIN AND SIGNUP*/}
+              {/*<Nav.Link className="link" href="#features">*/}
+              {/*  Login/SignUp*/}
+              {/*</Nav.Link>*/}
             </Nav>
           </Navbar.Collapse>
         </Navbar>

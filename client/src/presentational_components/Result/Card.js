@@ -30,14 +30,14 @@ function Card(props) {
                         <tbody>
                         <tr className="table__row">
                             <td className="col__1">Total Transactions:</td>
-                            <td className="col__2">170000</td>
+                            <td className="col__2">&#8377;&nbsp;17k</td>
                         </tr>
                         </tbody>
                         <tbody>
                         <tr className="table__row">
                             <td className="col__1">Grand Total:</td>
                             <td className="col__2">
-                                <span>&#8377;&nbsp; 340k</span>
+                                <span>&#8377;&nbsp;340k</span>
                             </td>
                         </tr>
                         </tbody>
@@ -48,15 +48,15 @@ function Card(props) {
                         </tbody>
                         <tbody>
                         <tr className="table__row">
-                            <td className="col__1">Transactions:</td>
-                            <td className="col__2">170000</td>
+                            <td className="col__1">Total Transactions:</td>
+                            <td className="col__2">&#8377;&nbsp;17k</td>
                         </tr>
                         </tbody>
                         <tbody>
                         <tr className="table__row">
-                            <td className="col__1">Grand Total :</td>
+                            <td className="col__1">Grand Total:</td>
                             <td className="col__2">
-                                <span>&#8377; 340k </span>
+                                <span>&#8377;&nbsp;340000</span>
                             </td>
                         </tr>
                         </tbody>
@@ -68,12 +68,12 @@ function Card(props) {
 
             <div className="card__stats">
                 <div className="stat">
-                    <div className="value">&#8377; 3 lakh</div>
+                    <div className="value">&#8377;&nbsp;3401554</div>
                     <div className="type">Cash Found</div>
                 </div>
 
                 <div className="stat">
-                    <div className="value">&#8377; 34 k</div>
+                    <div className="value">&#8377;&nbsp;34015546</div>
                     <div className="type">Cash Not Found</div>
                 </div>
             </div>

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap');
 .hero__section {
     width: 100%;
     position: relative;
@@ -66,6 +67,7 @@
     border-width: 1px;
     border-color: transparent;
     border-radius: 4px;
+    font-family: 'Quicksand', sans-serif;
     font-size: 1.5rem;
 
 }

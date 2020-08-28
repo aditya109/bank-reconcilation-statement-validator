@@ -7,10 +7,12 @@ export default class Upload extends React.Component {
         super(props);
         this.state = {
             file: null,
+
         };
         this.onFormSubmit = this.onFormSubmit.bind(this);
         this.onChange = this.onChange.bind(this);
         this.fileUpload = this.fileUpload.bind(this);
+        this.resetHandler = this.resetHandler.bind(this);
     }
 
     onFormSubmit(e) {
@@ -23,6 +25,7 @@ export default class Upload extends React.Component {
 
     onChange(e) {
         this.setState({file: e.target.files[0]});
+        console.log(this.state.file)
     }
 
     fileUpload(file) {
@@ -41,6 +44,9 @@ export default class Upload extends React.Component {
                 console.log("FAILURE !");
             });
     }
+    resetHandler = () => {
+        this.setState({file: null})
+    }
 
     render() {
         return (
@@ -49,35 +55,33 @@ export default class Upload extends React.Component {
                     {/*Upload files using click-button*/}
                     <div className="click__upload">
                         <div className="upload__text">
-                            <span>Please choose a file</span>
+                            {
+                                this.state.file ? (
+                                    <span>Click</span>
+                                ) : (
+                                    <span>Please choose a file</span>
+                                )
+                            }
+
                         </div>
                         <div className="file__upload">
                             <input type="file" onChange={this.onChange}/>
-                            <i className="fa fa-arrow-up"></i>
-                        </div>
-                    </div>
-
-                    {/*OR*/}
-                    <div className="or">
-                        <span>OR</span>
-                    </div>
-
-                    {/*Upload files using drop zone*/}
-                    <div className="drop__zone">
-                        <div className="file__upload__wrap">
-                            <input
-                                className="file__upload__input"
-                                type="file"
-                                accept="file/*"
-                            />
-                            <div className="drag__text">
-                                <h3>Drag and drop a file</h3>
-                            </div>
+                            {
+                                this.state.file ? (
+                                    <i className="far fa-hand-point-down"/>
+                                ) : (
+                                    <i className="fa fa-arrow-up"/>
+                                )
+                            }
                         </div>
                     </div>
 
                     {/*Submit Button*/}
-                    <button className="submit__btn" type="submit">Upload</button>
+                    <div className="submit__btn__container">
+                        <button className="submit__btn" type="submit">Upload <i className="fas fa-upload"/></button>
+                        <span className="reset__btn" onClick={this.resetHandler}>Reset <i className="fas fa-redo-alt"/></span>
+
+                    </div>
                 </form>
             </div>
         );

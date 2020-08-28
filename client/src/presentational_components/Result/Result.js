@@ -4,7 +4,7 @@ import Card from "./Card";
 
 function Result() {
     return (
-        <section className="results__section">
+        <div className="results__section" id="result">
 
             {/*Header Text*/}
 
@@ -21,21 +21,21 @@ function Result() {
                             title_head_short="CPNC"
                             title_head_full="Cheques Paid Not Cashed"
                         />
-                        {/*<Card*/}
-                        {/*    eta="6 seconds ago"*/}
-                        {/*    title_head_short="CDA"*/}
-                        {/*    title_head_full="Cheques Dishonor Action"*/}
-                        {/*/>*/}
-                        {/*<Card*/}
-                        {/*    eta="6 seconds ago"*/}
-                        {/*    title_head_short="CR"*/}
-                        {/*    title_head_full="Credits"*/}
-                        {/*/>*/}
-                        {/*<Card*/}
-                        {/*    eta="6 seconds ago"*/}
-                        {/*    title_head_short="Dr"*/}
-                        {/*    title_head_full="Debits"*/}
-                        {/*/>*/}
+                        <Card
+                            eta="6 seconds ago"
+                            title_head_short="CDA"
+                            title_head_full="Cheques Dishonor Action"
+                        />
+                        <Card
+                            eta="6 seconds ago"
+                            title_head_short="CR"
+                            title_head_full="Credits"
+                        />
+                        <Card
+                            eta="6 seconds ago"
+                            title_head_short="Dr"
+                            title_head_full="Debits"
+                        />
                     </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@ function Result() {
                     <p>View Chord Diagram</p>
                 </div>
             </div>
-        </section>
+        </div>
     );
 }
 
