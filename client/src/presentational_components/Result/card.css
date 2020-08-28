@@ -1,0 +1,113 @@
+.card {
+    display: grid;
+    margin: 2%;
+    grid-template-rows: 1fr 2.5fr 1fr;
+    grid-template-areas: "image" "text" "stats";
+    border-radius: 18px;
+    background: white;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+    text-align: center;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+
+{/*Card Header*/}
+
+.card > .card__header {
+    grid-area: image;
+    background: #dce35b; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+            to right,
+            #45a5b6,
+            orange
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+            to right,
+            #45a5b6,
+            orange
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+
+.card > .card__header > .title__text__head > .title__text {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.card > .card__header > h1 > span {
+    font-size: 3rem;
+}
+
+{/*Card Text*/}
+
+.card > .card__text {
+    grid-area: text;
+    margin: 25px;
+}
+
+.card > .card__text > .subtitle {
+    color: rgb(255, 7, 110);
+    font-size: 13px;
+}
+
+.card > .card__text > h2 {
+    font-size: 28px;
+    font-weight: 900;
+}
+
+.card > .card__text > .table__data {
+    font-size: 15px;
+    font-weight: 600;
+}
+.card > .card__text > .table__data > .metadata__table > tr > .col-1 {
+    text-align: start;
+    width: 13rem;
+}
+
+.card > .card__text > .table__data > .metadata__table > tr > .col-2 {
+    width: 20rem;
+    text-align: end;
+    padding-bottom: 10px;
+}
+
+.table__head__row {
+    color: rgb(255, 7, 110);
+}
+.table__head {
+    text-align: left;
+    width: 100%;
+    border-bottom: 2px solid;
+}
+
+{/*Card Stats*/}
+
+
+.card > .card__stats {
+    font-size: 19px;
+    font-weight: 500;
+    grid-area: stats;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: rgb(41, 40, 40);
+}
+.card > .card__stats > .stat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: aliceblue;
+    font-weight: 700;
+
+    padding-bottom: 10px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 5px 5px 15px rgba(27, 27, 27, 0.6);
+}

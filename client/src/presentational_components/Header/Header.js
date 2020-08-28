@@ -2,7 +2,7 @@ import React from "react";
 import "./header.css";
 
 import { Navbar, Nav } from "react-bootstrap";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link } from "react-scroll";
 class Header extends React.Component {
   render() {
     return (

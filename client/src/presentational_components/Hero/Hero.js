@@ -22,8 +22,8 @@ function Hero() {
                 </div>
                 <div className="description__container">
                     <div className="nav-to-tutorial">
-                        <i class="fas fa-question-circle"></i>&nbsp;
-                        <span className="content-text">Learn More</span>
+
+                        <span className="content-text"><i class="fas fa-question-circle"></i>&nbsp; Learn More</span>
                     </div>
                 </div>
             </div>
