@@ -1,0 +1,100 @@
+.upload__section {
+    scroll-behavior: smooth;
+    padding: 25% 0 20% 0;
+    z-index: 100;
+    width: 100%;
+    height: fit-content;
+    background: linear-gradient(
+            #ffffff,
+            #000000
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+/*Upload files using click-button*/
+
+
+.upload__section > form > .click__upload {
+    padding: 2vh;
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.upload__section > form > .click__upload > .upload__text {
+    padding-right: 3rem;
+}
+
+.upload__section > form > .click__upload > .upload__text > span {
+    font-size: 48px;
+    font-weight: 400;
+    color: aliceblue;
+
+}
+
+.upload__section > form > .click__upload > .file__upload {
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid #ffffff;
+    overflow: hidden;
+    background-image: linear-gradient(to bottom, #2590eb 50%, #ffffff 50%);
+    background-size: 100% 200%;
+    transition: all 1s;
+    color: #ffffff;
+    font-size: 100px;
+}
+
+.upload__section > form > .click__upload > .file__upload > input[type="file"] {
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/*Submit Button*/
+
+.upload__section > form > .submit__btn__container {
+    padding: 4% 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.upload__section > form > .submit__btn__container > .submit__btn {
+    background: white;
+    padding: 1%;
+    border-radius: 8%;
+    color: black;
+    font-size: 1.5em;
+    text-transform: capitalize;
+    border: none;
+    outline: none;
+
+}
+.upload__section > form > .submit__btn__container > .submit__btn:hover {
+    background: #323232;
+    color: #2590eb;
+    transition: all ease-in-out 0.3s;
+    -webkit-box-shadow: 0 0 35px 5px #d7fcf4;
+    -moz-box-shadow: 0 0 35px 5px #d7fcf4;
+    box-shadow: 0 0 35px 5px #ffffff;
+}
+.upload__section > form > .submit__btn__container > .reset__btn {
+    font-size: 1.13em;
+    color: white;
+    padding-top: 1.45%;
+}
+.upload__section > form > .submit__btn__container > .reset__btn:hover {
+    color: #1da1f2;
+    transition: all ease-in-out 0.3s;
+}

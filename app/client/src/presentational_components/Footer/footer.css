@@ -1,0 +1,123 @@
+footer {
+    width: 100%;
+    height: auto;
+    padding: 4% 4% 4% 4%;
+    background: #141414;
+    color: #1da1f2;
+}
+
+footer > .footer > .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/*description*/
+
+footer > .footer > .row > .description {
+    width: 50%;
+    text-align: left;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+footer > .footer > .row > .description > h2 {
+    font-weight: 100;
+    text-transform: uppercase;
+    font-size: 40px;
+    letter-spacing: 3px;
+}
+footer > .footer > .row > .description > h2 > span {
+    font-size: 60px;
+    color: white;
+}
+
+/*pages*/
+
+footer > .footer > .row > .pages {
+    width: 15%;
+}
+
+footer > .footer > .row > .pages > ul {
+    display: flex;
+    justify-content: right;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-left: 2%;
+}
+
+footer > .footer > .row > .pages > ul > li {
+    padding: 0 0 3% 0;
+    list-style: none;
+}
+
+footer > .footer > .row > .pages > ul > li > .pages__link {
+    color: aliceblue;
+    font-size: 1.3em;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+footer > .footer > .row > .pages > ul > li > .pages__link:hover {
+    color: #00d9ff;
+}
+
+/*social links*/
+
+footer > .footer > .row > .socio {
+    width: 15%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+footer > .footer > .row > .socio > h3 {
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
+}
+
+footer > .footer > .row > .socio > .links {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+footer > .footer > .row > .socio > .links > ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+footer > .footer > .row > .socio > .links > ul > li {
+    margin-right: 10px;
+    list-style: none;
+    text-decoration: none;
+}
+
+footer > .footer > .row > .socio > .links > ul > li > button {
+    padding: 20%;
+    border: none;
+}
+
+footer > .footer > .row > .socio > .links > ul > li > button > .fab {
+    color: rgb(105, 102, 102);
+    transition: 0.3s;
+    padding: 3%;
+    font-size: 30px;
+}
+
+footer > .footer > .row > .socio > .links > ul > li > button > .fa-github:hover {
+    outline: none !important;
+    color: white;
+}
+
+footer > .footer > .row > .socio > .links > ul > li > button > .fa-linkedin-in:hover {
+    outline: none !important;
+    color: #0072b1;
+}
+
+footer > .footer > .row > .socio > .links > ul > li > button >  .fa-twitter:hover {
+    color: #1da1f2;
+}
