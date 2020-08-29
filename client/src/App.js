@@ -5,16 +5,20 @@ import Hero from "./presentational_components/Hero/Hero";
 import Upload from "./container_components/Upload/Upload";
 import Result from "./presentational_components/Result/Result";
 import Footer from "./presentational_components/Footer/Footer";
+import store from './redux/store';
+import {Provider} from 'react-redux';
 
 function App() {
     return (
-        <div className="App">
-            <Header/>
-            <Hero/>
-            <Upload/>
-            <Result/>
-            <Footer />
-        </div>
+        <Provider store={store}>
+            <div className="App">
+                <Header/>
+                <Hero/>
+                <Upload/>
+                <Result/>
+                <Footer/>
+            </div>
+        </Provider>
     );
 }
 

@@ -9,21 +9,17 @@
   font-size: 1.75em;
 }
 
-.navbar-light .navbar-nav .nav-link {
-  padding-left: 2vh;
-  padding-right: 2vh;
+.navbar-light .navbar-nav {
   letter-spacing: 1px;
-  font-size: 1.35em;
+  font-size: 1.05em;
   text-transform: uppercase;
   font-weight: 500;
   color: rgb(0, 0, 0);
   border-radius: 4px;
 }
-.navbar-light .navbar-nav .nav-link:active,
-.navbar-light .navbar-nav .nav-link:hover {
+.navbar-light .navbar-nav :active,
+.navbar-light .navbar-nav :hover {
   color: rgb(255, 248, 248);
   font-weight: 500;
-  background: linear-gradient(to right, #8e9eab7c, #eef2f354);
   transition: all ease-in-out 0.3s;
 }
-

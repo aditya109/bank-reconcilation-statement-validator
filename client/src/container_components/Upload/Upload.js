@@ -1,13 +1,14 @@
 import React from "react";
 import "./upload.css";
 import axios from "axios";
+import {connect} from "react-redux";
+import {updateFileStatus} from "../../redux/actions";
 
-export default class Upload extends React.Component {
+class Upload extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            file: null,
-
+            file: null
         };
         this.onFormSubmit = this.onFormSubmit.bind(this);
         this.onChange = this.onChange.bind(this);
@@ -17,15 +18,13 @@ export default class Upload extends React.Component {
 
     onFormSubmit(e) {
         e.preventDefault();
-        // console.log(e.target.value);
-        // this.fileUpload(this.state.file).then((response) => {
-        //     console.log(response.data);
-        // });
+        console.log("This is working ... onFormSubmit")
+        this.props.updateFileStatus(this.state.file);
     }
 
     onChange(e) {
         this.setState({file: e.target.files[0]});
-        console.log(this.state.file)
+
     }
 
     fileUpload(file) {
@@ -44,6 +43,7 @@ export default class Upload extends React.Component {
                 console.log("FAILURE !");
             });
     }
+
     resetHandler = () => {
         this.setState({file: null})
     }
@@ -87,3 +87,18 @@ export default class Upload extends React.Component {
         );
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        file: state.file
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        updateFileStatus: (file) => dispatch(updateFileStatus(file))
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Upload);
