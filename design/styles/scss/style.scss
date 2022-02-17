@@ -1,6 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto&display=swap");
 
 * {
@@ -8,6 +5,7 @@
   margin: 0;
   padding: 0;
   background-color: transparent;
+  font-family: "Open Sans", sans-serif;
 }
 
 body {
@@ -15,7 +13,6 @@ body {
   padding: 0;
 
   header {
-    font-family: "Roboto Condensed", sans-serif;
     font-size: 20px;
     position: relative;
     width: 100%;
@@ -167,7 +164,6 @@ body {
         display: flex;
         flex-direction: column;
         .head-text {
-          font-family: "Montserrat", sans-serif;
           font-size: 5em;
           color: white;
           font-weight: 500;
@@ -175,7 +171,6 @@ body {
         }
         .subtitle-text {
           font-size: 2em;
-          font-family: "Roboto Condensed", sans-serif;
           letter-spacing: 1px;
           color: white;
           font-weight: 100;
@@ -190,7 +185,6 @@ body {
               color: rgb(163, 80, 2);
               border: thin white;
               span {
-                font-family: "Roboto Condensed", sans-serif;
                 font-size: 3rem;
                 font-weight: 700;
               }
@@ -222,7 +216,7 @@ body {
               color: rgb(178, 98, 180);
               font-weight: bolder;
               text-transform: lowercase;
-              font-family: "Open Sans", sans-serif;
+             
             }
             i {
               color: aliceblue;
@@ -316,7 +310,6 @@ body {
       .upload-text {
         padding-right: 3rem;
         span {
-          font-family: "Roboto Condensed", sans-serif;
           font-size: 48px;
           font-weight: 400;
           color: black;
@@ -363,7 +356,6 @@ body {
       align-items: center;
       span {
         font-size: 30px;
-        font-family: "Noto Sans", sans-serif;
         font-weight: bold;
         color: #2590eb;
       }
@@ -392,7 +384,6 @@ body {
           h3 {
             font-weight: 50;
             text-transform: uppercase;
-            font-family: "Roboto Condensed", sans-serif;
             font-size: 48px;
             color: black;
             padding: 7rem 0;
@@ -463,7 +454,6 @@ body {
           span {
             transition: all 0.3s;
             transform: scale(1, 1);
-            font-family: "Roboto Condensed", sans-serif;
             font-size: 15px;
             font-weight: 400;
             color: aliceblue;
@@ -581,7 +571,6 @@ body {
       justify-content: center;
       span {
         border-bottom: 5px solid rgb(255, 0, 0);
-        font-family: "Montserrat", sans-serif;
         font-weight: 200;
         font-size: 3em;
         color: aliceblue;
@@ -605,7 +594,6 @@ body {
           justify-content: start;
 
           background: rgba(255, 255, 255, 0.342);
-          font-family: "Roboto", sans-serif;
           font-weight: 100;
           overflow: hidden;
           .card {
@@ -617,7 +605,6 @@ body {
             border-radius: 18px;
             background: white;
             box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
-            font-family: Roboto;
             text-align: center;
             transition: 0.5s ease;
             cursor: pointer;
@@ -650,7 +637,6 @@ body {
               padding: 1vh;
               h1 {
                 span {
-                  font-family: "Open Sans", sans-serif;
                   font-size: 3rem;
                   text-align: center;
                 }
@@ -671,12 +657,10 @@ body {
 
               h2 {
                 font-size: 28px;
-                font-family: "Open Sans", sans-serif;
                 font-weight: 900;
               }
               .table-data {
                 font-size: 15px;
-                font-family: "Open Sans", sans-serif;
                 font-weight: 600;
                 .metadata-table {
                   tr {
@@ -703,7 +687,6 @@ body {
             }
             .card-stats {
               font-size: 19px;
-              font-family: "Open Sans", sans-serif;
               font-weight: 500;
               grid-area: stats;
               display: grid;
@@ -744,7 +727,6 @@ body {
       .container {
         color: black;
         font-size: 1.5rem;
-        font-family: "Open Sans", sans-serif;
         font-weight: 600;
         margin-right: 2vh;
         .button {
@@ -790,7 +772,6 @@ body {
     width: 100%;
     height: 30vh;
     padding: 4vh;
-    font-family: "Open Sans", sans-serif;
     font-size: 30px;
     background: #141414;
     color: #00d9ff;
@@ -833,7 +814,6 @@ body {
         h3 {
           font-size: 25px;
           font-weight: 250;
-          font-family: "Roboto Condensed", sans-serif;
           text-align: start;
           padding-left: 5vh;
         }
